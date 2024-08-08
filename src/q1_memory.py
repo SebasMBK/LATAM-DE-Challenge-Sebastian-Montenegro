@@ -61,3 +61,17 @@ def count_tweets(file_path: str) -> List[Tuple[datetime.date, str]]:
             top_user = user_date_count[date].most_common(1)[0][0]
             result.append((date, top_user))
     return result
+
+def q1_memory(file_path: str) -> List[Tuple[datetime.date, str]]:
+    """
+    Provides the top 10 dates with the most tweets and the user who tweeted the most on each of those dates
+
+    Parameters:
+    file_path (str): The path to the file containing the data
+
+    Returns:
+    List[Tuple[datetime.date, str]]: A list of tuples containing the date and the username of the top tweeter on that date
+    """
+    # Use count tweets to get the answer
+    answer = count_tweets(file_path=file_path)
+    return answer
