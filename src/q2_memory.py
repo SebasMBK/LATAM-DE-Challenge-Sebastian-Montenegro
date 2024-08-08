@@ -54,4 +54,21 @@ def count_emojis_in_file(file_path: str) -> Counter | None:
         return None
 
 def q2_memory(file_path: str) -> List[Tuple[str, int]]:
-    pass
+    """
+    Provides the top 10 most frequent emojis found in the tweet content
+
+    Parameters:
+    file_path (str): The path to the file containing tweet data
+
+    Returns:
+    List[Tuple[str, int]]: A list of tuples containing an emoji and its count for the top 10 most frequent emojis
+    """
+    # Count emojis in the file
+    emoji_counter = count_emojis_in_file(file_path)
+    if emoji_counter:
+        # Get the 10 most common emojis
+        most_common_emojis = emoji_counter.most_common(10)
+    else:
+        most_common_emojis = []
+
+    return most_common_emojis
