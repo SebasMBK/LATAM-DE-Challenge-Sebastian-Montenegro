@@ -37,5 +37,21 @@ def read_and_load_data(file_path: str) -> List[str] | None:
         print(f"Error decoding JSON from the file {file_path}.")
         return None
 
+def count_mentions(data: List[str]) -> List[Tuple[str, int]]:
+    """
+    Count the occurrences of each mentioned username and return the top 10 most frequent ones
+
+    Parameters:
+    data (List[str]): A list of mentioned usernames
+
+    Returns:
+    List[Tuple[str, int]]: A list of tuples containing a username and its count for the top 10 most frequent usernames
+    """
+    # Count the occurrences of each mentioned username
+    mentions = pd.Series(data).value_counts().nlargest(n=10)
+    # Convert the counts to a list of tuples
+    result = list(zip(mentions.index, mentions))
+    return result
+
 def q3_time(file_path: str) -> List[Tuple[str, int]]:
     pass
