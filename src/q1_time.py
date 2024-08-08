@@ -65,4 +65,22 @@ def find_answer(data: List[List[str]], cols: List[str]) -> List[Tuple[datetime.d
     return result
 
 def q1_time(file_path: str) -> List[Tuple[datetime.date, str]]:
-    pass
+    """
+    Provides the top 10 dates with the most tweets and the user who tweeted the most on each of those dates
+
+    Parameters:
+    file_path (str): The path to the file containing the data
+
+    Returns:
+    List[Tuple[datetime.date, str]]: A list of tuples containing the date and the username of the top tweeter on that date
+    """
+    cols = ['date', 'username']
+    # Read and load data from the file
+    data = read_and_load_data(file_path=file_path)
+
+    if data:
+        # Find the answer using the loaded data
+        result = find_answer(data=data, cols=cols)
+    else:
+        result = []
+    return result
