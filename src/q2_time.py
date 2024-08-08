@@ -56,4 +56,18 @@ def count_emojis(data: List[str]) -> List[Tuple[str, int]]:
     return result
 
 def q2_time(file_path: str) -> List[Tuple[str, int]]:
-    pass
+    """
+    Provides the top 10 most frequent emojis found in the tweets
+
+    Parameters:
+    file_path (str): The path to the file containing tweet data
+
+    Returns:
+    List[Tuple[str, int]]: A list of tuples each containing an emoji and its count for the top 10 most frequent emojis
+    """
+    data = read_and_load_data(file_path=file_path)
+    if data:
+        result = count_emojis(data=data)
+    else:
+        result = []
+    return result
