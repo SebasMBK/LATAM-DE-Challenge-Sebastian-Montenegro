@@ -39,5 +39,21 @@ def read_and_load_data(file_path: str) -> List[str] | None:
         print(f"Error decoding JSON from the file {file_path}.")
         return None
 
+def count_emojis(data: List[str]) -> List[Tuple[str, int]]:
+    """
+    Count the occurrences of each emoji and return the top 10 most frequent ones
+
+    Parameters:
+    data (List[str]): A list of emojis extracted from the tweet content
+
+    Returns:
+    List[Tuple[str, int]]: A list of tuples containing an emoji and its count for the top 10 most frequent emojis
+    """
+    # Count the occurrences of each emoji
+    emojis_count = pd.Series(data).value_counts().nlargest(n=10)
+    # Convert the counts to a list of tuples
+    result = list(zip(emojis_count.index, emojis_count))
+    return result
+
 def q2_time(file_path: str) -> List[Tuple[str, int]]:
     pass
