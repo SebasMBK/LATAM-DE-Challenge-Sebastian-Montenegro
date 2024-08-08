@@ -54,4 +54,20 @@ def count_mentions(data: List[str]) -> List[Tuple[str, int]]:
     return result
 
 def q3_time(file_path: str) -> List[Tuple[str, int]]:
-    pass
+    """
+    Provides the top 10 most frequently mentioned usernames
+
+    Parameters:
+    file_path (str): The path to the file containing tweet data
+
+    Returns:
+    List[Tuple[str, int]]: A list of tuples containing a username and its count for the top 10 most frequently mentioned usernames
+    """
+    # Read and load data from the file
+    data = read_and_load_data(file_path=file_path)
+    if data:
+        # Count the mentions using the loaded data
+        result = count_mentions(data=data)
+    else:
+        result = []
+    return result
