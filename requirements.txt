@@ -1,1 +1,5 @@
 memory-profiler==0.61.0
+pandas==2.2.2
+emoji==2.12.1
+py-spy==0.3.14
+regex==2024.7.24
