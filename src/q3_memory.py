@@ -54,4 +54,15 @@ def count_mentions(file_name: str) -> List[Tuple[str, int]]:
     return top_10_mentions
     
 def q3_memory(file_path: str) -> List[Tuple[str, int]]:
-    pass
+    """
+    Provides the top 10 most frequently mentioned usernames
+
+    Parameters:
+    file_path (str): The path to the file containing tweet data
+
+    Returns:
+    List[Tuple[str, int]]: A list of tuples containing a username and its count for the top 10 most frequently mentioned usernames
+    """
+    # Get the answer by counting mentions from the file
+    answer = count_mentions(file_name=file_path)
+    return answer
